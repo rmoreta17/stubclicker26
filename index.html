@@ -13,12 +13,10 @@
 .achievement-item.locked{opacity:.55}.achievement-item .status{float:right}
 
 
-.levels-admin-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"admin levels";gap:12px;align-items:start;width:100%;max-width:none;margin:0 auto}
-.levels-admin-row>#adminPanel{grid-area:admin}
-.levels-admin-row>#levelsPanel{grid-area:levels}
-.levels-admin-row>.panel{width:100%;max-width:none;min-width:0;margin:10px 0 16px}
+/* Admin and Levels panels: use the full available width, stacked vertically below Achievements. */
+.levels-admin-row{display:flex!important;flex-direction:column;align-items:stretch;gap:0;width:100%;max-width:none;margin:0 auto}
+.levels-admin-row>#adminPanel,.levels-admin-row>#levelsPanel{width:100%;max-width:none;min-width:0;margin:10px 0 16px;grid-area:auto}
 .levels-admin-row .heading{overflow-wrap:anywhere}
-@media(max-width:620px){.levels-admin-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"admin levels";gap:8px}.levels-admin-row>.panel{padding:10px}.levels-admin-row .btn{padding:8px 6px;font-size:11px}.levels-admin-row .heading{font-size:15px}.levels-admin-row .note{font-size:10px}.levels-admin-row input,.levels-admin-row select{font-size:12px;padding:7px 5px}.levels-admin-row .milestone{padding:8px 0}}
 </style></head><body><main class="app">
 <div id="achievementBanner" class="achievement-banner" role="status" aria-live="polite">🏆 Achievement Earned!</div><div id="levelUpBanner" class="level-up-banner" role="status" aria-live="polite">🎉 LEVEL UP!</div>
 <header><h1>STUB CLICKER <span>26</span></h1><div class="subtitle">Tap, Earn, Upgrade</div>
