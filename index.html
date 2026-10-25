@@ -85,7 +85,7 @@ function fmtPowerAfter(n){return fmtLarge(n,1000000)}
 function levelGoal(level){return [250,500,750,1000,1250,1500,1750,2000][level]||2000+250*(level-7)}
 function upgradeCost(base,owned){return Math.round(base*Math.pow(1.25,owned))}
 // Level rewards add free upgrades, but only purchased upgrades increase future prices.
-function paidUpgradeCount(type){if(type==='firstBaseman')return Math.max(0,Number(state.firstBasemanPurchases)||0);const rewardBonus=type==='gen'&&state.level1Claimed?10:type==='pitcher'&&state.level2Claimed?10:type==='catcher'&&state.level3Claimed?10:type==='firstBaseman'&&state.level4Claimed?10:type==='secondBaseman'&&state.level5Claimed?10:type==='thirdBaseman'&&state.level6Claimed?10:type==='shortstop'&&state.level7Claimed?10:type==='leftField'&&state.level8Claimed?10:type==='centerField'&&state.level9Claimed?10:type==='rightField'&&state.level10Claimed?10:0;return Math.max(0,(Number(state[type])||0)-rewardBonus)}
+function paidUpgradeCount(type){return Math.max(0,Number(state[type])||0)}
 function tapUpgradeCost(owned){return Math.round(50*Math.pow(2.5,owned))}
 function powerAtTapLevel(level){return level<20?Math.pow(2,level):524288*15*Math.pow(2,level-20)}
 function nextTapPower(power,level){return power*(level===19?15:2)}
