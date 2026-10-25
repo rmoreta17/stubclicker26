@@ -75,7 +75,7 @@ function upgradeCost(base,owned){return Math.round(base*Math.pow(1.25,owned))}
 // Level rewards add free upgrades, but only purchased upgrades increase future prices.
 function paidUpgradeCount(type){if(type==='firstBaseman')return Math.max(0,Number(state.firstBasemanPurchases)||0);const rewardBonus=type==='gen'&&state.level1Claimed?10:type==='pitcher'&&state.level2Claimed?10:type==='catcher'&&state.level3Claimed?10:type==='firstBaseman'&&state.level4Claimed?10:type==='secondBaseman'&&state.level5Claimed?10:type==='thirdBaseman'&&state.level6Claimed?10:0;return Math.max(0,(Number(state[type])||0)-rewardBonus)}
 function tapUpgradeCost(owned){return Math.round(50*Math.pow(2.5,owned))}
-const baseMilestones=[{n:100,name:'Common'},{n:10000,name:'Bronze'},{n:75000,name:'Silver'},{n:500000,name:'Gold'},{n:1250000,name:'Diamond'},{n:10000000,name:'Red Diamond'},{n:99999999,name:'99'}];
+const baseMilestones=[{n:100,name:'Common'},{n:10000,name:'Bronze'},{n:75000,name:'Silver'},{n:500000,name:'Gold'},{n:10000000,name:'Diamond'},{n:250000000,name:'Red Diamond'},{n:999999999,name:'99'}];
 function allMilestones(){return [...baseMilestones.filter(m=>!(state.removedMilestones||[]).includes(m.name)),...(state.customMilestones||[])].sort((a,b)=>a.n-b.n)}
 let achievementTimer;
 function showAchievement(names){
