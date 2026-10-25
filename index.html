@@ -102,7 +102,7 @@ function showAchievement(names){
 let levelBannerTimer;
 function showLevelUp(){const banner=$('levelUpBanner');banner.textContent='🎉 LEVEL UP! You reached Level '+state.level+'!';banner.classList.add('show');clearTimeout(levelBannerTimer);levelBannerTimer=setTimeout(()=>banner.classList.remove('show'),3000)}
 function countTapForLevel(){state.levelProgress++;if(state.levelProgress>=levelGoal(state.level)){state.level++;state.levelProgress=0;showLevelUp();if(state.level<=10)showAchievement(['Reach Level '+state.level])}}
-function upgradeRate(count,base){return count>=25?base*2:base}
+function upgradeRate(count,base){if(count<25)return base;if(count<50)return base*2;if(count<75)return base*8;return base*64*Math.pow(8,Math.floor((count-75)/25))}
 function ballBoyRate(){return upgradeRate(state.gen,3)}
 function stubsPerSecond(){return state.gen*ballBoyRate()+state.pitcher*upgradeRate(state.pitcher,10)+state.catcher*upgradeRate(state.catcher,35)+state.firstBaseman*upgradeRate(state.firstBaseman,75)+state.secondBaseman*upgradeRate(state.secondBaseman,200)+state.thirdBaseman*upgradeRate(state.thirdBaseman,325)+state.shortstop*upgradeRate(state.shortstop,750)+state.leftField*upgradeRate(state.leftField,1500)+state.centerField*upgradeRate(state.centerField,3250)+state.rightField*upgradeRate(state.rightField,6000)}
 function render(){
